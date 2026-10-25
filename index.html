@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriDoc — Authenticity Screening</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#top"><span class="brand-mark">V</span><span>veridoc<span class="brand-dot">.</span><small>DOCUMENT INTELLIGENCE</small></span></a>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav-item active" href="#top"><span>◫</span> Overview</a>
+    <a class="nav-item" href="#scanner"><span>▣</span> Document scanner</a>
+    <a class="nav-item" href="#how-it-works"><span>◈</span> How it works</a>
+    <div class="sidebar-bottom"><div class="shield">✦</div><strong>Verification, with context</strong><p>Machine learning flags signals that may deserve a closer human review.</p><div class="privacy"><span></span> Private demo processing</div></div>
+  </aside>
+  <main class="main" id="top">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b>Authenticity scan</b></div><div class="top-right"><span class="status-dot"></span> ML engine <b>Prototype</b><div class="avatar">VD</div></div></header>
+    <section class="hero"><div><div class="eyebrow"><span class="live-dot"></span> DOCUMENT AUTHENTICITY SCREENING</div><h1>Every document<br>has a <em>story.</em></h1><p>Inspect certificates, attendance sheets, offer letters and other records with a single upload.</p><a class="hero-link" href="#scanner">Start a document check <span>↘</span></a></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="doc-card"><div class="doc-top"><span class="mini-logo">V</span><span class="doc-lines"><i></i><i></i></span></div><div class="doc-seal">✦</div><div class="doc-title-line"></div><div class="doc-line"></div><div class="doc-line short"></div><div class="doc-sign"></div><div class="doc-foot">DOCUMENT UNDER REVIEW</div></div><div class="floating-chip chip-one">⌁ QR signal</div><div class="floating-chip chip-two">✦ ML analysis</div></div></section>
+    <section class="stats"><div class="stat-card"><div class="stat-icon purple">▣</div><div><span>Accepted files</span><strong>PDF + Images</strong><small>PDF, PNG, JPG, WEBP</small></div></div><div class="stat-card"><div class="stat-icon mint">⌁</div><div><span>Signal inspection</span><strong>6 indicators</strong><small>QR, dates, issuer, ID…</small></div></div><div class="stat-card"><div class="stat-icon amber">◈</div><div><span>Analysis method</span><strong>ML + rules</strong><small>Screening, not proof</small></div></div></section>
+    <section class="scanner-section" id="scanner"><div class="section-heading"><div><div class="eyebrow">ANALYSIS WORKSPACE</div><h2>Document verification</h2><p>Upload a file to preview it, watch the scan, and review the findings.</p></div><span class="secure-badge">⌑ Secure upload · 12 MB max</span></div>
+      <div class="scanner-grid"><div class="upload-panel"><form id="uploadForm"><label class="dropzone" id="dropzone" for="documentInput"><input id="documentInput" name="document" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff" hidden><span class="upload-icon">↑</span><strong id="uploadTitle">Drop your document here</strong><span class="upload-sub" id="uploadSub">or <u>browse files</u> from your device</span><span class="file-types"><b>PDF</b><b>PNG</b><b>JPG</b><b>WEBP</b></span></label><div class="file-selected" id="fileSelected" hidden><span class="file-glyph">▤</span><div class="file-meta"><b id="fileName"></b><small id="fileSize"></small></div><button type="button" id="removeFile" aria-label="Remove file">×</button></div><div class="upload-hint">ⓘ Use a clear, readable scan. Scanned PDFs may require Tesseract OCR.</div><button class="primary-btn" id="analyzeBtn" type="submit">Start verification scan <span>→</span></button></form></div>
+      <div class="info-panel"><div class="info-head"><div class="info-symbol">✧</div><div><strong>Signals being checked</strong><p>Available clues, not guarantees</p></div></div><div class="check-list"><div><span class="check-icon">⌁</span><span><b>QR code</b><small>Detection and readable content</small></span><span class="check-arrow">↗</span></div><div><span class="check-icon">#</span><span><b>Document number</b><small>Reference identifier and format</small></span><span class="check-arrow">↗</span></div><div><span class="check-icon">◎</span><span><b>Issuer & date</b><small>Expected information in text</small></span><span class="check-arrow">↗</span></div><div><span class="check-icon">✍</span><span><b>Signature cues</b><small>Text cues only, not biometric verification</small></span><span class="check-arrow">↗</span></div></div><div class="info-note">ⓘ A missing signal alone does not mean a document is fake. Formats vary by institution.</div></div></div>
+      <div class="loading" id="loading" hidden><div class="scan-orb"><span></span></div><div class="loading-copy"><b>Scanning document signals<span class="animated-dots">...</span></b><p>Reading content · checking QR data · evaluating features</p><div class="progress-track"><i></i></div><small>Analysis in progress — please keep this page open</small></div></div>
+      <div class="result-panel" id="resultPanel" hidden></div>
+    </section>
+    <section class="how-section" id="how-it-works"><div class="eyebrow">CLEAR. SIMPLE. REVIEWABLE.</div><h2>From upload to insight</h2><div class="steps"><div class="step"><span>01</span><div class="step-icon">↑</div><h3>Upload</h3><p>Choose a document in a supported format.</p></div><div class="step"><span>02</span><div class="step-icon">⌕</div><h3>Scan</h3><p>Preview the file and extract available signals.</p></div><div class="step"><span>03</span><div class="step-icon">✧</div><h3>Review</h3><p>Inspect the model output and follow up with the issuer.</p></div></div></section>
+    <footer><a class="footer-brand" href="#top">veridoc<span>.</span></a><span>Machine-learning project prototype · Not an official verification service</span><a href="#scanner">New analysis ↑</a></footer>
+  </main>
+</div><script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
